@@ -12,9 +12,17 @@ public class Algoritmos {
 
         switch (escolha) {
             case 1:
-                    n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
+                n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a quantidade de números"));
 
-                Fibonacci(0, 0, n);
+                String MensageFibo = gerarFibonacci(0, 0, n,"");
+
+                if(MensageFibo == ""){
+                    JOptionPane.showMessageDialog(null,"VALOR ZERO INFORMADO");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, MensageFibo);
+                }
+
                 break;
             case 2:
                 n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
@@ -40,11 +48,11 @@ public class Algoritmos {
         return escolha + 1;
     }
 
-    public static void Fibonacci(int pen, int ult, int n) {
+    public static String gerarFibonacci(int pen, int ult, int n, String fibonacci) {
 
         // Caso base - Quando n é igual a 0
         if (n == 0) {
-            return;
+            return fibonacci;
         }
 
         int fibo;
@@ -54,18 +62,14 @@ public class Algoritmos {
             pen = 0;
             ult = 1;
         } else {
-
             fibo = pen + ult;
             pen = ult;
             ult = fibo;
         }
 
-        JOptionPane.showMessageDialog(null, fibo + " ");
-
-        Fibonacci(pen, ult, n - 1);
+        fibonacci += fibo + " ";
+        return gerarFibonacci(pen, ult, n - 1, fibonacci);
     }
-
-
 
     public static void Fatorial (int n) {
 
@@ -89,5 +93,3 @@ public class Algoritmos {
         JOptionPane.showMessageDialog(null, "O valor do fatorial duplo é "+fat);
     }
 }
-
-
