@@ -6,18 +6,26 @@ public class Algoritmos {
 
         JOptionPane.showInternalMessageDialog(null, "Bem vindo!!");
 
-        int n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
-
         int escolha = Menu();
+
+        int n = 0;
+        int n2 = 0;
+        int n3 = 0;
 
         switch (escolha) {
             case 1:
-                //Fibonatti
+                    n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
+                    n2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
+                    n3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
+
+                Fibonacci(n, n2, n3);
                 break;
             case 2:
+                n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
                 Fatorial(n);
                 break;
             case 3:
+                n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
                 FatorialDuplo(n);
                 break;
             default:
@@ -29,12 +37,39 @@ public class Algoritmos {
     public static int Menu() {
 
         //Opções do Menu
-        String[] opcoes = {"Fibonatti", "Fatorial", "Fatorial Duplo", "Finalizar"};
+        String[] opcoes = {"Fibonacci", "Fatorial", "Fatorial Duplo", "Finalizar"};
 
         int escolha = JOptionPane.showOptionDialog(null, "Escolha uma opção:", "Menu", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
 
         return escolha + 1;
     }
+
+    public static void Fibonacci(int pen, int ult, int n) {
+
+        // Caso base - Quando n é igual a 0
+        if (n == 0) {
+            return;
+        }
+
+        int fibo;
+
+        if (pen == 0 && ult == 0) {
+            fibo = 0;
+            pen = 0;
+            ult = 1;
+        } else {
+
+            fibo = pen + ult;
+            pen = ult;
+            ult = fibo;
+        }
+
+        JOptionPane.showMessageDialog(null, fibo + " ");
+
+        Fibonacci(pen, ult, n - 1);
+    }
+
+
 
     public static void Fatorial (int n) {
 
