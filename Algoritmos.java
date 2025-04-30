@@ -6,8 +6,7 @@ public class Algoritmos {
 
         JOptionPane.showInternalMessageDialog(null, "Bem vindo!!");
 
-        int[] lista = new int[3];
-        Leitura(lista);
+        int n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
 
         int escolha = Menu();
 
@@ -16,26 +15,15 @@ public class Algoritmos {
                 //Fibonatti
                 break;
             case 2:
-                //Fatorial
+                Fatorial(n);
                 break;
             case 3:
-                //Fatorial Duplo
+                FatorialDuplo(n);
                 break;
             default:
                 JOptionPane.showMessageDialog(null, ("OBRIGADO POR USAR O SISTEMA!"));
         }
 
-    }
-
-    public static int[] Leitura(int[] lista) {
-
-        //Laço para preencher o vetor
-        for (int i = 0; i < lista.length; i++) {
-
-            lista[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
-
-        }
-        return lista;
     }
 
     public static int Menu() {
@@ -48,6 +36,27 @@ public class Algoritmos {
         return escolha + 1;
     }
 
+    public static void Fatorial (int n) {
 
+        int fat = 1;
+
+        for (int i = 1; i <= n; i++) {
+            // Multiplica o valor do fat pelo o i e armazena
+            fat *= i;
+        }
+        JOptionPane.showMessageDialog(null, "O valor do fatorial é "+fat);
+    }
+
+    public static void FatorialDuplo (int n) {
+
+        int fat = 1;
+
+        // O i irá diminuir em 2 a cada repetição do laço abaixo
+        for (int i = n; i >= 1; i -= 2) {
+            fat *= i;
+        }
+        JOptionPane.showMessageDialog(null, "O valor do fatorial duplo é "+fat);
+    }
 }
+
 
