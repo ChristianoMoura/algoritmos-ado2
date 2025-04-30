@@ -9,16 +9,12 @@ public class Algoritmos {
         int escolha = Menu();
 
         int n = 0;
-        int n2 = 0;
-        int n3 = 0;
 
         switch (escolha) {
             case 1:
                     n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
-                    n2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
-                    n3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
 
-                Fibonacci(n, n2, n3);
+                Fibonacci(0, 0, n);
                 break;
             case 2:
                 n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número "));
